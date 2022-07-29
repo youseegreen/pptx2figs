@@ -1,0 +1,5 @@
+!.gitkeep
+*.png
+*.pptx
+*.pdf
+!demo/demo.png
