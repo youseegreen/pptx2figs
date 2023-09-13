@@ -183,11 +183,11 @@ if __name__ == "__main__":
         except Exception:
             print('Error parsing argument: %s' % opt)
             print(usage)
-            sys.exit(2)
-    if input_filename == None:
-        print("Set the input file!")
-        print(usage)
-        sys.exit(2)
-
-    make_figs(input_filename, start_page, end_page)
-
+            sys.exit(2)    
+    if input_filename is not None:   
+        make_figs(input_filename, start_page, end_page)
+    else:
+        f_input = "./input_pptxs/"
+        files = [f_input + f for f in os.listdir(f_input) if '.pptx' in f]
+        for file in files:
+            make_figs(file, start_page, end_page)
