@@ -77,7 +77,7 @@ def make_1fig_pdf(pptx_filename, pdf_filename):
 
     # Powerpointファイルを開きPDF形式で保存
     application = win32com.client.Dispatch('Powerpoint.Application')
-    presentation = application.Presentations.Open(pptx_filename_abs)
+    presentation = application.Presentations.Open(pptx_filename_abs, WithWindow=False)
     presentation.SaveAs(pdf_filename_abs, 32) 
     
     # アプリケーション終了処理
@@ -96,7 +96,7 @@ def make_1fig_png(pptx_filename, png_filename):
 
     # Powerpointファイルを開きPDF形式で保存
     application = win32com.client.Dispatch('Powerpoint.Application')
-    presentation = application.Presentations.Open(pptx_filename_abs)
+    presentation = application.Presentations.Open(pptx_filename_abs, WithWindow=False)
     presentation.Export(png_filename_abs, FilterName="png")
 
     # HOGEHOGE.pngを保存したい場合、HOGEHOGE/スライド1.PNGになるので、修正する
